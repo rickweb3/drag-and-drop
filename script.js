@@ -10,20 +10,27 @@ document.querySelectorAll('.area').forEach(area => {
 });
 
 
+document.querySelector('.neutralArea').addEventListener('dragover', dragOverNeutral);
+document.querySelector('.neutralArea').addEventListener('dragleave', dragLeaveNeutral);
+document.querySelector('.neutralArea').addEventListener('drop', dropNeutral);
+
+
 // Function Item
 function dragStart(e) {
-    e.currentTarget.classList.add('draggin');
+    e.currentTarget.classList.add('dragging');
 }
 
 function dragEnd(e) {
-    e.currentTarget.classList.remove('draggin');
+    e.currentTarget.classList.remove('dragging');
 }
 
 
 // Function Area
 function dragOver(e) {
-    e.preventDefault();
-    e.currentTarget.classList.add('hover');
+    if (e.currentTarget.querySelector('.item') === null) {
+        e.preventDefault();
+        e.currentTarget.classList.add('hover');
+    }
 }
 
 function dragLeave(e) {
@@ -33,9 +40,26 @@ function dragLeave(e) {
 function drop(e) {
     e.currentTarget.classList.remove('hover');
 
-    let dragItem = document.querySelector('.item.draggin');
     if (e.currentTarget.querySelector('.item') === null) {
+        let dragItem = document.querySelector('.item.dragging');
         e.currentTarget.appendChild(dragItem);
     }
+}
 
+
+// Functions Neutral Area
+function dragOverNeutral(e) {
+    e.preventDefault();
+    e.currentTarget.classList.add('hover');
+}
+
+function dragLeaveNeutral(e) {
+    e.currentTarget.classList.remove('hover');
+}
+
+function dropNeutral(e) {
+    e.currentTarget.classList.remove('hover');
+    let dragItem = document.querySelector('.item.dragging');
+    e.currentTarget.appendChild(dragItem);
+    console.log('fim');
 }
