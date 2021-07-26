@@ -26,6 +26,8 @@ Projeto prático de estudo desenvolvido com o intuito de aplicar meus conhecimen
 
 ## Projeto desenvolvido
 
-![Screenshot](overview_complete_awax.png)
+![Screenshot](img_readme/overview_drag_and_drop_1.png)
+![Screenshot](img_readme/overview_drag_and_drop_2.png)
+![Screenshot](img_readme/overview_drag_and_drop_3.png)
 
 ---
